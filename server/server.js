@@ -9,6 +9,10 @@ app.get("/home", (req, res) => {
    })
 })
 
+app.get('/collections', async (req, res) => {
+   const collections = await brand.find({});
+})
+
 app.listen(5000, () => {console.log("Server is listening on Port 5000")
 })
 
