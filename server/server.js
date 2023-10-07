@@ -1,10 +1,10 @@
 require('dotenv').config();
 
-import express from 'express';
+const express = require('express');
 const app = express()
 
 app.get('/', (req, res) => {
-   console.log('This is home page')
+   res.json({ movies: ["Titanic", "Tenet", " Batman"] })
 })
 
 app.listen(5000, () => {console.log("Server is listening on Port 5000")
