@@ -5,7 +5,7 @@ function App() {
 
   // fetch the Homepage data
   useEffect(() => {
-    fetch('/').then(
+    fetch("/home").then(
       response => response.json()
     ).then(
       data => {
@@ -25,7 +25,7 @@ function App() {
         ))
       )}
 
-      
+
     </div>
   )
 }
