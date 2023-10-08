@@ -1,4 +1,5 @@
 import Container from "./Container";
+import Ruler from "./Ruler";
 
 const Footer = () => {
   return (
@@ -31,7 +32,7 @@ const Footer = () => {
         </div>
       </Container>
 
-      <div className="ruler my-12"></div>
+      <Ruler className="my-12"></Ruler>
 
       <Container className="container">
         <div className="flex flex-col gap-y-2 mb-10">
