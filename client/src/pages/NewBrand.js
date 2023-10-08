@@ -1,5 +1,6 @@
 import Header from "../components/header";
 import Input from '../components/input';
+import ShowBrands from '../components/showBrands';
 
 const NewBrand = () => {
     return (
@@ -9,6 +10,7 @@ const NewBrand = () => {
             <div className='container'>
                 <Input />
             </div>
+            <ShowBrands />
         </>
     )
 }

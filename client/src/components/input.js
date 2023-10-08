@@ -20,7 +20,7 @@ const Input = () => {
                 body: JSON.stringify(Brand)
             });
 
-           window.location = "/"; //screen refreshes once response has been sent
+           window.location = "/NewBrand"; //redirects to the brand screen
         } catch (err) {
             console.error(err.message)
         }
