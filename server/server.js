@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json()); //allows us to access req.body
 
 
-// ROUTES
+// brand ROUTES
 
 //create a brand
 app.post("/brands", async (req, res) => {
@@ -29,7 +29,6 @@ app.post("/brands", async (req, res) => {
     } catch (err) {
         console.error(err.message);
     }
-
 })
 
 //get all brands
@@ -69,16 +68,19 @@ app.put("/brands/:brandName", async (req, res) => {
 })
 
 // delete a brand
-app.delete("/brands/:brandName", async (req, res) => {
+app.delete("/brands/:brand_id", async (req, res) => {
     try{
-        const { brandName } = req.params;
-        const deleteBrand = await pool.query("DELETE FROM brand WHERE name = $1", [brandName]);
+        const { brand_id } = req.params;
+        const deleteBrand = await pool.query("DELETE FROM brand WHERE brand_id = $1", [brand_id]);
 
         res.json("Brand was deleted")
     } catch (err) {
         console.error(err.message);
     }
 })
+
+
+// product ROUTES
 
 
 app.listen(5000, () => {console.log("Server is listening on Port 5000")
