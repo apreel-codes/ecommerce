@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { Home, Brand, Checkout, Collection, NewBrand, NewProduct, Product, SignUp } from './pages';
@@ -11,17 +12,19 @@ import Product from "./pages/Product";
 import SignUp from "./pages/SignUp";
 import ErrorPage from "./pages/NoPage";
 import Login from "./pages/Login";
+import Footer from "./components/Footer";
 
 // components
 import Input from "./components/input";
 function App() {
   return (
-    <div>
+    <div className="app">
       {/* <div className='container'>
         <Input />
       </div> */}
+      <Footer />
 
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -32,11 +35,11 @@ function App() {
           <Route path="/Collection" element={<Collection />} />
           <Route path="/NewProduct" element={<NewProduct />} />
           <Route path="/Product" element={<Product />} />
-          <Route path="/Login" element={<Login />} />
-          {/* error page should be the last page */}
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="/Login" element={<Login />} /> */}
+      {/* error page should be the last page */}
+      {/* <Route path="*" element={<ErrorPage />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }
