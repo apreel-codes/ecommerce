@@ -24,17 +24,17 @@ app.use(express.json()); //allows us to access req.body
 app.post("/brands", upload.single('image'), async (req, res) => {
     try {
         console.log("req.body", req.body);
-        console.log("req.file", req.file);
+        // console.log("req.file", req.file);
         // res.send(req.body, req.file);
         // res.status(200).send(req.file);
         // console.log(feedback);
         // console.log(res.body);
         // res.status(200).send(req.body, req.file);
-        // const { name, image } = req.body;
-        // const newBrand = await pool.query("INSERT INTO brand (name, image) VALUES($1, $2) RETURNING * ", //insert new brand into a brand table, and the column to add to is the name column,
-        // [name, image] //to specify what exactly is coming from the client side, which will be the value of the $1 //RETURNING ensures we return back the data
-        // );
-        // res.json(newBrand.rows[0])
+        const { name, image } = req.body;
+        const newBrand = await pool.query("INSERT INTO brand (name, image) VALUES($1, $2) RETURNING * ", //insert new brand into a brand table, and the column to add to is the name column,
+        [name, image] //to specify what exactly is coming from the client side, which will be the value of the $1 //RETURNING ensures we return back the data
+        );
+        res.json(newBrand.rows[0])
     } catch (err) {
         console.error(err.message); 
     }

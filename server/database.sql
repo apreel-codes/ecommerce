@@ -156,3 +156,17 @@ ALTER COLUMN image TYPE image::BYTEA;
 
 ALTER TABLE brand
 ALTER COLUMN image TYPE VARCHAR;
+
+ALTER TABLE brand
+    ADD logo BYTEA
+;
+
+ALTER TABLE brand
+DROP COLUMN image;
+
+ALTER TABLE brand
+DROP COLUMN logo;
+
+ALTER TABLE brand
+    ADD image VARCHAR
+;
