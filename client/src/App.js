@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import ErrorPage from "./pages/NoPage";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 // components
 import Input from "./components/input";
@@ -22,6 +23,7 @@ function App() {
       {/* <div className='container'>
         <Input />
       </div> */}
+      <Navbar />
       <Footer />
 
       {/* <BrowserRouter>
