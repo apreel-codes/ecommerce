@@ -4,7 +4,7 @@ import Ruler from "./Ruler";
 const Footer = () => {
   console.log(window.location.host);
   return (
-    <footer className="mt-auto ">
+    <footer className="mt-auto">
       <Container className="flex flex-col gap-y-12 justify-between pt-4 md:flex-row">
         {/* quick links */}
         <div className="flex flex-col gap-y-6">

@@ -40,22 +40,23 @@ const Input = () => {
     }
 
     return (
-        <div className='py-5 bg-gray-100 mt-5 rounded'>
+        <div className='py-5 bg-gray-100 rounded mx-28 my-5'>
             <div className='flex flex-row justify-between w-[80%] h-[37rem] mx-auto bg-white shadow-lg rounded'>
                 <div className='w-[50%] my-auto'>
-                    <form className='w-[100%] px-10' onSubmit={onSubmitForm} enctype="multipart/form-data">
-                        <div className='flex flex-row justify-between items-center w-[100%]'>
-                            <label className='block text-500 font-medium md:text-right mb-1 md:mb-0 pr-4'>
+                    <form className='w-[100%] px-14' onSubmit={onSubmitForm} enctype="multipart/form-data">
+                        <h1 className="font-black text-3xl mt-3">New Brand</h1>
+                        <div className='items-center w-[100%]'>
+                            <label className='block text-500 font-medium md:text-right mb-1 md:mb-0 pr-4 float-left mt-5'>
                                     Brand Name
                             </label>
-                            <input className='border-1 border-black-500 w-[70%]' type='text' value={name} onChange={e => setName(e.target.value)}/>  
+                            <input className='border-1 border-black-500 w-[100%] h-[2rem] mt-2' type='text' value={name} onChange={e => setName(e.target.value)}/>  
                         </div>
 
-                        <div className='flex flex-row justify-between items-center w-full mt-4'>
-                            <label className='block text-500 font-medium md:text-right mb-1 md:mb-0 pr-4' htmlFor="file_input">
+                        <div className='items-center w-full mt-4'>
+                            <label className='block text-500 font-medium md:text-right mb-1 md:mb-0 pr-4 float-left' htmlFor="file_input">
                                 Logo
                             </label>
-                            <input class="block w-[70%] text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+                            <input class="block mt-2 w-[100%] text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
                                 id="file_input" 
                                 type="file" 
                                 accept="image/jpeg, image/png"
@@ -64,7 +65,7 @@ const Input = () => {
                                 onChange={e => setImage(e.target.value)} 
                             />
                         </div>
-                        <small class="mt-1 float-right text-xs text-gray-500 dark:text-gray-300" id="file_input_help">
+                        <small class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">
                             PNG or JPG(MAX. 800x400px).
                         </small>
                         <div className=''>
@@ -73,7 +74,7 @@ const Input = () => {
                     </form>
                 </div>
                 
-                <div className='addbrand h-[100%] w-[100%] my-auto w-[50%]'>
+                <div className='addbrand h-[100%] my-auto w-[50%]'>
                 </div>
             </div>
         </div>

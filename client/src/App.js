@@ -13,14 +13,17 @@ import SignUp from "./pages/SignUp";
 import ErrorPage from "./pages/NoPage";
 import Login from "./pages/Login";
 import Footer from "./components/footer";
+import Header from "./components/header";
 
 // components
 import Input from "./components/input";
 function App() {
   return (
-    <div id="app" class="flex flex-col">
-      <div className="container mx-auto md:px-36">
-        <BrowserRouter>
+    <div>
+      <div id="app">
+         <div className="">
+         <BrowserRouter>
+         <Header />
           <Routes>
             <Route index element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -35,7 +38,9 @@ function App() {
             {/* error page should be the last page */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-        </BrowserRouter>
+          <Footer />
+          </BrowserRouter>
+        </div>
       </div>
     </div>
   );
