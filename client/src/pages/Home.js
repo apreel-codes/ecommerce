@@ -1,7 +1,7 @@
 import Header from "../components/header";
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from "react-router-dom";
 import React from "react";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 const Home = () => {
     return (
@@ -13,6 +13,5 @@ const Home = () => {
         </div>
     )
 }
-
 
 export default Home;

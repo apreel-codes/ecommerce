@@ -74,17 +74,10 @@ const Footer = () => {
             NGN &#8358; | Nigeria
           </span>
         </div>
-        <ul className="flex gap-x-2 items-center mb-3">
-          <li className="text-xs">&copy; 2023, PGF Prime</li>
-          <li className="text-xs">&#183;</li>
-          <li className="text-xs">Refund policy</li>
-          <li className="text-xs">&#183;</li>
-          <li className="text-xs">Privacy policy</li>
-          <li className="text-xs">&#183;</li>
-          <li className="text-xs">Terms of service</li>
-          <li className="text-xs">&#183;</li>
-          <li className="text-xs">Contact information</li>
-        </ul>
+        <small className="text-xs">
+          &copy; 2023, PGF Prime &#183; Refund policy &#183; Privacy policy
+          &#183; Terms of service &#183; Contact information
+        </small>
       </Container>
     </footer>
   );

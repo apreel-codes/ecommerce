@@ -1,7 +1,7 @@
 import Header from "../components/header";
-import Input from '../components/input';
-import ShowBrands from '../components/showBrands';
-import Footer from "../components/footer";
+import Input from "../components/input";
+import ShowBrands from "../components/showBrands";
+import Footer from "../components/Footer";
 
 const NewBrand = () => {
     return (

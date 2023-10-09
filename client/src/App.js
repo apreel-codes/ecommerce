@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { Home, Brand, Checkout, Collection, NewBrand, NewProduct, Product, SignUp } from './pages';
 import Home from "./pages/Home";
 import Brand from "./pages/Brand";
 import Checkout from "./pages/Checkout";
@@ -13,17 +11,16 @@ import SignUp from "./pages/SignUp";
 import ErrorPage from "./pages/NoPage";
 import Login from "./pages/Login";
 import Footer from "./components/footer";
-import Header from "./components/header";
 
 // components
 import Input from "./components/input";
+import Header from "./components/header";
 function App() {
   return (
-    <div>
-      <div id="app">
-         <div className="">
-         <BrowserRouter>
-         <Header />
+    <div id="app" class="flex flex-col">
+      <div className="container mx-auto md:px-36">
+        <BrowserRouter>
+          <Header />
           <Routes>
             <Route index element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -39,8 +36,7 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <Footer />
-          </BrowserRouter>
-        </div>
+        </BrowserRouter>
       </div>
     </div>
   );
