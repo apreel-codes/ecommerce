@@ -5,15 +5,13 @@ import Footer from "../components/footer";
 
 const NewBrand = () => {
     return (
-        <>
+        <div>
             <Header />
-            <p>This is New Brand page</p>
-            <div className='container'>
+                <h1 className="border font-black text-3xl mt-3">New Brand</h1>
                 <Input />
-            </div>
-            <ShowBrands />
-            <Footer />
-        </>
+                <ShowBrands />
+                <Footer />
+        </div>
     )
 }
 

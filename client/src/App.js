@@ -18,24 +18,25 @@ import Footer from "./components/footer";
 import Input from "./components/input";
 function App() {
   return (
-    <div className="app">
-
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/NewBrand" element={<NewBrand />} />
-          <Route path="/Brand" element={<Brand />} />
-          <Route path="/Checkout" element={<Checkout />} />
-          <Route path="/Collection" element={<Collection />} />
-          <Route path="/NewProduct" element={<NewProduct />} />
-          <Route path="/Product" element={<Product />} />
-          <Route path="/Login" element={<Login />} /> 
-          {/* error page should be the last page */}
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </BrowserRouter>
+    <div id="app" class="flex flex-col">
+      <div className="container mx-auto md:px-36">
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/NewBrand" element={<NewBrand />} />
+            <Route path="/Brand" element={<Brand />} />
+            <Route path="/Checkout" element={<Checkout />} />
+            <Route path="/Collection" element={<Collection />} />
+            <Route path="/NewProduct" element={<NewProduct />} />
+            <Route path="/Product" element={<Product />} />
+            <Route path="/Login" element={<Login />} /> 
+            {/* error page should be the last page */}
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }

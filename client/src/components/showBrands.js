@@ -37,7 +37,7 @@ const ShowBrands = () => {
     }, []);
 
     return (
-        <div className='container mt-3'>
+        <div>
             {brands.map((brand, i) => (
                 <div key={brand.brand_id}>
                     <p>{brand.image}</p>
