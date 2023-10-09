@@ -5,8 +5,8 @@ const Input = () => {
     const [image, setImage] = useState('');
 
     const onSubmitForm = async (e) => {
+        e.preventDefault();
         try{
-            e.preventDefault();
             const Brand = {
                 name,
                 image
@@ -19,7 +19,7 @@ const Input = () => {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(Brand)
             });
-
+            console.log(Brand);
            window.location = "/NewBrand"; //redirects to the brand screen
         } catch (err) {
             console.error(err.message)

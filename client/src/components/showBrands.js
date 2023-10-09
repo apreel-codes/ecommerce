@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import EditBrand from "./edit";
 
 const ShowBrands = () => {
 
@@ -7,7 +8,12 @@ const ShowBrands = () => {
     //delete brand
     const deleteBrand = async (id) => {
         try {
-            const deleteBrand = await fetch("http://localhost:5000/brands")
+            const deleteBrand = await fetch(`http://localhost:5000/brands/${id}`, {
+                method: "DELETE"
+            });
+
+            //to remove deleted items from page
+            setBrands(brands.filter(brand => brand.brand_id !== id))
         } catch (err) {
             console.error(err.message)
         }
@@ -31,13 +37,15 @@ const ShowBrands = () => {
     }, []);
 
     return (
-        <div className='container'>
+        <div className='container mt-3'>
             {brands.map((brand, i) => (
                 <div key={brand.brand_id}>
                     <p>{brand.image}</p>
                     <p>{brand.name}</p>
-                    <p>Edit</p>
-                    <button className="btn btn-danger" onClick={() => deleteBrand(brand.brand_id)}>Delete</button>
+                    <div>
+                        <EditBrand brand={brand} />
+                    </div>
+                    <button className="btn btn-danger mt-3" onClick={() => deleteBrand(brand.brand_id)}>Delete</button>
                 </div>              
             ))}
         </div>

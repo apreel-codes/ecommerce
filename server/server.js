@@ -54,12 +54,12 @@ app.get("/brands/:brandName", async (req, res) => {
 })
 
 //update a brand
-app.put("/brands/:brandName", async (req, res) => {
+app.put("/brands/:brand_id", async (req, res) => {
     try {
-        const { brandName } = req.params;
-        const { name } = req.body;
-        const updatedBrand = await pool.query("UPDATE brand SET name = $1 WHERE name = $2", //this is to set the name column to whatever it is set to
-        [name, brandName]);
+        const { brand_id } = req.params;
+        const { name, image } = req.body;
+        const updatedBrand = await pool.query("UPDATE brand SET (name, image) = ($1, $2) WHERE brand_id = $3", //this is to set the name column to whatever it is set to
+        [name, image, brand_id]);
         
         res.json("Brand name was updated!")
     } catch (err) {
