@@ -1,19 +1,18 @@
 import Header from "../components/header";
-import Input from '../components/input';
-import ShowBrands from '../components/showBrands';
+import Input from "../components/input";
+import ShowBrands from "../components/showBrands";
+import Footer from "../components/Footer";
 
 const NewBrand = () => {
-    return (
-        <>
-            <Header />
-            <p>This is New Brand page</p>
-            <div className='container'>
-                <Input />
-            </div>
-            <ShowBrands />
-        </>
-    )
-}
-
+  return (
+    <div>
+      <Header />
+      <h1 className="border font-black text-3xl mt-3">New Brand</h1>
+      <Input />
+      <ShowBrands />
+      <Footer />
+    </div>
+  );
+};
 
 export default NewBrand;

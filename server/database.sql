@@ -11,7 +11,7 @@ ALTER TABLE product
     ADD logo_image BIGINT;
 ;
 
-LTER TABLE product RENAME TO brand;
+ALTER TABLE product RENAME TO brand;
 
 CREATE TABLE product(
     id SERIAL PRIMARY KEY,
@@ -144,3 +144,15 @@ DROP COLUMN description;
 
 ALTER TABLE brand
 RENAME COLUMN logo_image TO image;
+
+ALTER TABLE webuser RENAME TO user;
+
+ALTER TABLE product
+    ADD brand_id BIGINT;
+
+
+ALTER TABLE brand
+ALTER COLUMN image TYPE image::BYTEA;
+
+ALTER TABLE brand
+ALTER COLUMN image TYPE VARCHAR;

@@ -5,7 +5,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const methodOverride = require('method-override');
-const pool = require("./database")
+const pool = require("./database");
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 const app = express();
 
@@ -18,16 +21,22 @@ app.use(express.json()); //allows us to access req.body
 // brand ROUTES
 
 //create a brand
-app.post("/brands", async (req, res) => {
+app.post("/brands", upload.single('image'), async (req, res) => {
     try {
-        const { name, image } = req.body;
-        
-        const newBrand = await pool.query("INSERT INTO brand (name, image) VALUES($1, $2) RETURNING * ", //insert new brand into a brand table, and the column to add to is the name column,
-        [name, image] //to specify what exactly is coming from the client side, which will be the value of the $1 //RETURNING ensures we return back the data
-        );
-        res.json(newBrand.rows[0])
+        console.log("req.body", req.body);
+        console.log("req.file", req.file);
+        // res.send(req.body, req.file);
+        // res.status(200).send(req.file);
+        // console.log(feedback);
+        // console.log(res.body);
+        // res.status(200).send(req.body, req.file);
+        // const { name, image } = req.body;
+        // const newBrand = await pool.query("INSERT INTO brand (name, image) VALUES($1, $2) RETURNING * ", //insert new brand into a brand table, and the column to add to is the name column,
+        // [name, image] //to specify what exactly is coming from the client side, which will be the value of the $1 //RETURNING ensures we return back the data
+        // );
+        // res.json(newBrand.rows[0])
     } catch (err) {
-        console.error(err.message);
+        console.error(err.message); 
     }
 })
 
@@ -54,12 +63,12 @@ app.get("/brands/:brandName", async (req, res) => {
 })
 
 //update a brand
-app.put("/brands/:brandName", async (req, res) => {
+app.put("/brands/:brand_id", async (req, res) => {
     try {
-        const { brandName } = req.params;
-        const { name } = req.body;
-        const updatedBrand = await pool.query("UPDATE brand SET name = $1 WHERE name = $2", //this is to set the name column to whatever it is set to
-        [name, brandName]);
+        const { brand_id } = req.params;
+        const { name, image } = req.body;
+        const updatedBrand = await pool.query("UPDATE brand SET (name, image) = ($1, $2) WHERE brand_id = $3", //this is to set the name column to whatever it is set to
+        [name, image, brand_id]);
         
         res.json("Brand name was updated!")
     } catch (err) {
