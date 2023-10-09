@@ -2,6 +2,7 @@ import Container from "./Container";
 import Ruler from "./Ruler";
 
 const Footer = () => {
+  console.log(window.location.host);
   return (
     <footer className="mt-auto ">
       <Container className="flex flex-col gap-y-12 justify-between pt-4 md:flex-row">
@@ -25,10 +26,42 @@ const Footer = () => {
         </div>
 
         {/* payment methods */}
-        <div>
+        <div className="flex flex-col gap-y-6">
           <span className="font-semibold text-lg">
             Supported payment methods
           </span>
+          <ul className="grid grid-cols-4 gap-3 max-w-[15rem]">
+            <li>
+              <img src="/images/visa.svg" alt="" className="max-w-[2.8rem]" />
+            </li>
+            <li>
+              <img
+                src="/images/mastercard.svg"
+                alt=""
+                className="max-w-[3.5rem]"
+              />
+            </li>
+            <li>
+              <img src="/images/verve.svg" alt="" className="max-w-[2.8rem]" />
+            </li>
+            <li>
+              <img
+                src="/images/paystack.svg"
+                alt=""
+                className="max-w-[2.8rem]"
+              />
+            </li>
+            <li>
+              <img src="/images/zenith.svg" alt="" className="max-w-[2.8rem]" />
+            </li>
+            <li>
+              <img src="/images/access.svg" alt="" className="max-w-[2.8rem]" />
+            </li>
+
+            <li>
+              <img src="/images/gtb.svg" alt="" className="max-w-[2.8rem]" />
+            </li>
+          </ul>
         </div>
       </Container>
 
