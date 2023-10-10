@@ -179,3 +179,20 @@ ALTER COLUMN image TYPE BLOB;
 
 ALTER TABLE brand
 ALTER COLUMN image TYPE BYTEA;
+
+ALTER TABLE webuser
+    ADD password VARCHAR,
+    ADD is_staff BOOLEAN,
+    ADD is_superuser BOOLEAN
+;
+
+ALTER TABLE webuser
+ALTER COLUMN password TYPE VARCHAR
+;
+
+ALTER TABLE webuser
+ALTER COLUMN email TYPE VARCHAR
+;
+
+ALTER TABLE webuser
+RENAME COLUMN id TO user_id;

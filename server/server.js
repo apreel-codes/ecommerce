@@ -83,12 +83,26 @@ app.delete("/brands/:brand_id", async (req, res) => {
     }
 })
 
+// create user
 
-// product ROUTES
+
+app.post("/register", async (req, res) => {
+    try {
+        const { first_name, last_name, email, password } = req.body;
+        const newUser = await pool.query("INSERT INTO webuser (first_name, last_name, email, password) VALUES($1, $2, $3, $4) RETURNING * ", 
+        [ first_name, last_name, email, password ] 
+        );
+        res.json(newUser.rows[0])     
+    } catch (err) {
+        console.error(err.message); 
+    }
+})
 
 
 app.listen(5000, () => {console.log("Server is listening on Port 5000")
 })
+
+
 
 
 

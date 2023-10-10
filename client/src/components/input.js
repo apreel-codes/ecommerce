@@ -15,7 +15,7 @@ const Input = () => {
             setName(event.target.value);
     };
     
-    const SubmitForm = async (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
         
         const formData = new FormData();
@@ -24,11 +24,12 @@ const Input = () => {
         formData.append('name', name);
 
             try{
-                await Axios.post('http://localhost:5000/brands', 
-                formData
-                )
+                const response = await Axios.post('http://localhost:5000/brands', formData, {
+                // method: "POST",
+                headers: { "Content-Type": "multipart/form-data" }
+                })
                 .then(res => {
-                    console.log(res)
+                    console.log(response)
                 })
                 //    window.location = "/NewBrand"; //redirects to the brand screen
                 } catch (err) {
@@ -45,7 +46,7 @@ const Input = () => {
             <div className='flex flex-row justify-between w-[80%] h-[37rem] mx-auto bg-white shadow-lg rounded'>
                 <div className='w-[50%] my-auto'>
                     <form className='w-[100%] px-14' 
-                    onSubmit={SubmitForm}
+                    onSubmit={submitForm}
                     >
                         <h1 className="font-black text-3xl mt-3">New Brand</h1>
                         <div className='items-center w-[100%]'>

@@ -27,7 +27,7 @@ const Header = () => {
 							</nav>
 							<div className="flex flex-row justify-between text-lg text-gray-100 w-[10%]">
                                 <Link to="/Login">Login</Link>
-                                <Link to="/SignUp">Sign Up</Link>
+                                <Link to="/register">Sign Up</Link>
 							</div>
 						</div>	
 				    </div>

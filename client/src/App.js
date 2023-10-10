@@ -7,7 +7,7 @@ import Collection from "./pages/Collection";
 import NewBrand from "./pages/NewBrand";
 import NewProduct from "./pages/NewProduct";
 import Product from "./pages/Product";
-import SignUp from "./pages/SignUp";
+import Register from "./pages/Register";
 import ErrorPage from "./pages/NoPage";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
@@ -23,7 +23,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/NewBrand" element={<NewBrand />} />
             <Route path="/Brand" element={<Brand />} />
             <Route path="/Checkout" element={<Checkout />} />
