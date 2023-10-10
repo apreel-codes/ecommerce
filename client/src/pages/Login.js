@@ -1,4 +1,4 @@
-import Header from "../components/header";
+import Header from "../components/Header";
 import { Routes, Route, Link } from 'react-router-dom';
 
 const Login = () => {

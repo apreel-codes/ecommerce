@@ -1,56 +1,62 @@
 import React, { useState } from 'react';
-import './input.css';
+import './Input.css';
 import Axios from 'axios';
-import NewBrand from '../pages/NewBrand';
 
 const Input = () => {
     const [name, setName] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(null);
 
-
-    let formData = new FormData();
-
-    const onImageChange = (e) => {
-        if(e.target && e.target.files[0]) {
-            formData.append('file', e.target.files[0]);
-        }
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        setImage(file);
     }
+   
+    const handleNameChange = (event) => {
+            setName(event.target.value);
+    };
     
-    const onSubmitForm = async (e) => {
+    const SubmitForm = async (e) => {
         e.preventDefault();
-        try{
-            const Brand = {
-                name,
-                image
-            }
+        
+        const formData = new FormData();
 
-            // sending the request
-            const response = await fetch("http://localhost:5000/brands", { formData, 
-                // by default, fetch uses GET method, so specify POST as method
-                method: "POST",
-                // headers: { "Content-Type": "multipart/form-data" },
-            });
-            console.log(Brand)
-            console.log(response)
-        //    window.location = "/NewBrand"; //redirects to the brand screen
-        } catch (err) {
-            console.error(err.message)
-        }
-    }
+        formData.append('image', image);
+        formData.append('name', name);
+
+            try{
+                await Axios.post('http://localhost:5000/brands', 
+                formData
+                )
+                .then(res => {
+                    console.log(res)
+                })
+                //    window.location = "/NewBrand"; //redirects to the brand screen
+                } catch (err) {
+                    console.error(err.message)
+            }
+        
+    setName('');
+    setImage(null);
+    
+    };
 
     return (
-        <div className='py-5 bg-gray-100 rounded mx-28 my-5'>
+        <div className='py-5 bg-gray-100 rounded mx-40 my-5'>
             <div className='flex flex-row justify-between w-[80%] h-[37rem] mx-auto bg-white shadow-lg rounded'>
                 <div className='w-[50%] my-auto'>
                     <form className='w-[100%] px-14' 
-                    onSubmit={onSubmitForm} 
-                    enctype="multipart/form-data">
+                    onSubmit={SubmitForm}
+                    >
                         <h1 className="font-black text-3xl mt-3">New Brand</h1>
                         <div className='items-center w-[100%]'>
                             <label className='block text-500 font-medium md:text-right mb-1 md:mb-0 pr-4 float-left mt-5'>
                                     Brand Name
                             </label>
-                            <input className='border-1 border-black-500 w-[100%] h-[2rem] mt-2' type='text' value={name} onChange={e => setName(e.target.value)}/>  
+                            <input className='border-1 border-black-500 w-[100%] h-[2rem] mt-2'
+                            type='text'
+                            value={name} 
+                            onChange={handleNameChange}
+                            />  
                         </div>
 
                         <div className='items-center w-full mt-4'>
@@ -62,10 +68,10 @@ const Input = () => {
                                 type="file" 
                                 accept="image/jpeg, image/png"
                                 name='image'
-                                value={image} 
-                                onChange={e => setImage(onImageChange(e))}
+                                // value={image} 
+                                onChange={handleImageUpload}
                             />
-                        </div>
+                        </div> 
                         <small class="mt-1 text-xs text-gray-500 dark:text-gray-300" id="file_input_help">
                             PNG or JPG(MAX. 800x400px).
                         </small>
@@ -83,7 +89,6 @@ const Input = () => {
             </div>
         </div>
         
-    )
+    );
 }
-
 export default Input;

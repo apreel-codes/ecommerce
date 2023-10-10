@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import EditBrand from "./edit";
+import EditBrand from "./Edit";
 
 const ShowBrands = () => {
 

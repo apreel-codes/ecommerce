@@ -10,15 +10,14 @@ import Product from "./pages/Product";
 import SignUp from "./pages/SignUp";
 import ErrorPage from "./pages/NoPage";
 import Login from "./pages/Login";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 // components
-import Input from "./components/input";
-import Header from "./components/header";
+import Header from "./components/Header";
 function App() {
   return (
-    <div id="app" class="flex flex-col">
-      <div className="container mx-auto md:px-36">
+    <div id="app" class="">
+      <div className="">
         <BrowserRouter>
           <Header />
           <Routes>
